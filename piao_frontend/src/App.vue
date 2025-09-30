@@ -26,6 +26,12 @@ const expanded = ref(['1'])
             <router-link to="/send/ticket"> 发送优惠券 </router-link>
           </span>
         </t-menu-item>
+
+        <t-menu-item value="1-3">
+          <span>
+            <router-link to="/manage/ticket"> 管理优惠券 </router-link>
+          </span>
+        </t-menu-item>
       </t-submenu>
       <t-submenu value="2">
         <template #title>
