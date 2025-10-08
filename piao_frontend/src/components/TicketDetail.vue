@@ -1,5 +1,5 @@
 <template>
-  <t-button @click="visible = true">查看发放情况</t-button>
+  <t-button @click="visible = true" >查看发放情况</t-button>
   <t-dialog
     v-model:visible="visible"
     header="提示"
@@ -17,7 +17,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  visible1: {
+  visible: {
     type: Boolean,
     default: false,
   },
@@ -27,9 +27,9 @@ onMounted(async () => {
   console.log(props)
 })
 
-const visible1 = ref(props.visible1)
+const visible = ref(props.visible)
 
 const close1 = () => {
-  visible1.value = false
+  visible.value = false
 }
 </script>

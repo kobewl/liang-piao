@@ -97,3 +97,4 @@ spring.log
 # Test reports
 /test-results/
 /test-output/
+.DS_Store

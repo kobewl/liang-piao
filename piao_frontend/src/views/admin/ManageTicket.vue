@@ -1,13 +1,13 @@
 <template>
     <t-list :split="true">
-      <t-list-item v-for="ticket in dataList" :key="ticket.ticketName">
+      <t-list-item v-for="ticket in ticketList" :key="ticket.id">
         <t-list-item-meta :title="ticket.ticketName" :description="ticket.ticketEsc" />
         <p>回调接口地址: {{ ticket.callbackUrl }}</p>
         <p>回调接口信息: {{ ticket.callbackInfo }}</p>
-        <t-button>查看发放情况</t-button>
+        <t-button @click="ticketDetailModalVisible = true; currentTicketId = ticket.id">查看发放情况</t-button>
       </t-list-item>
     </t-list>
-    <ticket-detail />
+    <ticket-detail :visible="currentTicketId" :ticketId="currentTicketId" @close="currentTicketId = ''" />
   </template>
   
   <script setup lang="ts">  
@@ -15,14 +15,19 @@
   import TicketDetail from '@/components/TicketDetail.vue'
 
   type TicktyType = {
+    id: string;
     ticketName: string;
     ticketEsc: string;
     callbackUrl: string;
     callbackInfo: string;
   }
 
-  const dataList: TicktyType[] = [
+  const ticketDetailModalVisible = ref(false)
+  const currentTicketId = ref('')
+
+  const ticketList: TicktyType[] = [
     {
+      id: '1',
       ticketName: 'liang-piao',
       ticketEsc: '仅限聊呗优惠券',
       callbackUrl: 'www.baidu.com',
